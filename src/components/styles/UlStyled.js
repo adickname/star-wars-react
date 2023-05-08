@@ -1,8 +1,9 @@
 import styled from 'styled-components'
 
-const Ul = styled.ul`
+const UlStyled = styled.ul`
     display: flex;
+    flex-direction: column;
     list-style-type: none;
     padding: 10px;
 `
-export default Ul
+export default UlStyled

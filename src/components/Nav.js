@@ -1,27 +1,19 @@
 import NavStyled from './styles/NavStyled'
-import Ul from './styles/UlStyled'
+import Ul from './Ul'
 import LiStyleds from './styles/LiStyled'
 import { Link } from 'react-router-dom'
+import React, { useState, useEffect } from 'react'
+import Hamburger from 'hamburger-react'
+
 const Nav = () => {
+    const [isOpen, setIsOpen] = useState(false)
+    function handleClick() {
+        setIsOpen(!isOpen)
+    }
     return (
-        <NavStyled>
-            <Ul>
-                <Link to="/">
-                    <LiStyleds>Home</LiStyleds>
-                </Link>
-                <Link to="/planets">
-                    <LiStyleds>Planets</LiStyleds>
-                </Link>
-                <Link to="/people">
-                    <LiStyleds>People</LiStyleds>
-                </Link>
-                <Link to="/films">
-                    <LiStyleds>Films</LiStyleds>
-                </Link>
-                <Link to="starships">
-                    <LiStyleds>Starships</LiStyleds>
-                </Link>
-            </Ul>
+        <NavStyled onClick={() => handleClick()}>
+            <Hamburger></Hamburger>
+            {isOpen && <Ul></Ul>}
         </NavStyled>
     )
 }
