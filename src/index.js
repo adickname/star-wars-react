@@ -8,7 +8,7 @@ import Planets from './components/Planets'
 import People from './components/People'
 import Films from './components/Films'
 import Starships from './components/Starships'
-
+import GetDataAPI from './getDataAPI'
 const GlobalStyled = createGlobalStyle`
 body{
     background-image: url(./ZBf0Im.jpeg);
@@ -33,6 +33,7 @@ root.render(
 
                 <Route path="/" element={<Starships />} />
             </Routes>
+            {/* <GetDataAPI category={'planets'} /> */}
         </BrowserRouter>
     </React.StrictMode>
 )
