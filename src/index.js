@@ -27,13 +27,12 @@ root.render(
 
                 <Route path="/planets" element={<Planets />} />
 
-                <Route path="/" element={<People />} />
+                <Route path="/people" element={<People />} />
 
-                <Route path="/" element={<Films />} />
+                <Route path="/films" element={<Films />} />
 
-                <Route path="/" element={<Starships />} />
+                <Route path="/starships" element={<Starships />} />
             </Routes>
-            <GetDataAPI category={'planets'} />
         </BrowserRouter>
     </React.StrictMode>
 )

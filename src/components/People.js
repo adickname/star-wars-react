@@ -1,5 +1,7 @@
+import GetDataAPI from '../getDataAPI'
+
 const People = () => {
-    return ''
+    return <GetDataAPI category={'people'} />
 }
 
 export default People

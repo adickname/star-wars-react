@@ -1,5 +1,7 @@
+import GetDataAPI from '../getDataAPI'
+
 const Films = () => {
-    return ''
+    return <GetDataAPI category={'films'} />
 }
 
 export default Films

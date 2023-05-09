@@ -1,5 +1,7 @@
+import GetDataAPI from '../getDataAPI'
+
 const Starships = () => {
-    return ''
+    return <GetDataAPI category={'starships'} />
 }
 
 export default Starships
