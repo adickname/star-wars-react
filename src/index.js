@@ -33,7 +33,7 @@ root.render(
 
                 <Route path="/" element={<Starships />} />
             </Routes>
-            {/* <GetDataAPI category={'planets'} /> */}
+            <GetDataAPI category={'planets'} />
         </BrowserRouter>
     </React.StrictMode>
 )

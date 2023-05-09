@@ -8,7 +8,6 @@ const GetDataAPI = ({ category }) => {
             .then(({ data }) => {
                 const res = data.results
                 setCategoryData(res)
-                console.log(categoryData)
             })
             .catch((err) => console.log(err))
     }, [])
