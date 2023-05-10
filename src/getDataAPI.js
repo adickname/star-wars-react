@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
+
+import HeaderDetailsCategoryElementStyled from './components/styles/HeaderDetailsCategoryElement'
 const GetDataAPI = ({ category }) => {
     const [isDownloading, setIsDownloading] = useState(true)
     const [categoryData, setCategoryData] = useState([])
+
     useEffect(() => {
         axios
             .get(`https://swapi.dev/api/${category}/`)
@@ -17,15 +20,18 @@ const GetDataAPI = ({ category }) => {
     }, [])
 
     return (
-        <div>
+        <section>
             {isDownloading && <p>Loading data</p>}
-
-            {categoryData.map((data) => (
-                <div>
-                    <a>{data.name}</a>
-                </div>
-            ))}
-        </div>
+            <article>
+                {categoryData.map((data) => (
+                    <HeaderDetailsCategoryElementStyled
+                        onClick={() => console.log(`klimat ${data.climate}`)}
+                    >
+                        {data.name}
+                    </HeaderDetailsCategoryElementStyled>
+                ))}
+            </article>
+        </section>
     )
 }
 
