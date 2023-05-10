@@ -12,8 +12,11 @@ const Nav = () => {
     }
     return (
         <NavStyled onClick={() => handleClick()}>
-            <Hamburger></Hamburger>
-            {isOpen && <Ul></Ul>}
+            <>
+                <Hamburger></Hamburger>
+                <h1>STAR WARS WIKI</h1>
+            </>
+            <>{isOpen && <Ul></Ul>}</>
         </NavStyled>
     )
 }

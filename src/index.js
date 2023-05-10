@@ -1,26 +1,18 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import { createGlobalStyle } from 'styled-components'
 import Nav from './components/Nav'
 import Home from './components/Home'
 import Planets from './components/Planets'
 import People from './components/People'
 import Films from './components/Films'
 import Starships from './components/Starships'
-import GetDataAPI from './getDataAPI'
-const GlobalStyled = createGlobalStyle`
-body{
-    background-image: url(./ZBf0Im.jpeg);
-    font-family: 'Montserrat', sans-serif;
-    margin: 0;
-}
-`
+import GlobalStyles from './components/styles/GlobalStyles'
 const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(
     <React.StrictMode>
         <BrowserRouter>
-            <GlobalStyled />
+            <GlobalStyles />
             <Nav />
             <Routes>
                 <Route path="/" element={<Home />} />
