@@ -1,4 +1,4 @@
-import GetDataAPI from '../getDataAPI'
+import GetDataAPI from './DataAPI'
 
 const Films = () => {
     return <GetDataAPI category={'films'} />

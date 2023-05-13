@@ -1,4 +1,4 @@
-import GetDataAPI from '../getDataAPI'
+import GetDataAPI from './DataAPI'
 
 const Planets = () => {
     return <GetDataAPI category={'planets'} />
