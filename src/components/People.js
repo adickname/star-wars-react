@@ -1,7 +1,12 @@
-import GetDataAPI from './DataAPI'
+import GetDataAPI from './DataAPICategory'
 
 const People = () => {
-    return <GetDataAPI category={'people'} />
+    return (
+        <GetDataAPI
+            link={'https://swapi.dev/api/people/'}
+            category={'people'}
+        />
+    )
 }
 
 export default People

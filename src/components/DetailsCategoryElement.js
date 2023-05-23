@@ -1,6 +1,15 @@
+import GetDataAPI from './DataAPICategory'
+import GetDataAPIFomLinksAtDetails from './DataAPIFromLinksAtDetails'
 import DetailsCategoryElementStyled from './styles/DetailsCategoryElementStyled'
 import { useState } from 'react'
 
+/* const log = async (link) => {
+    const res = await fetch(`${link}`)
+    const data = await res.json()
+    console.log(data)
+    return data.name
+}
+ */
 const DetailsCategoryElement = ({ category, data }) => {
     const [isDownloading, setIsDownloading] = useState(true)
     if (category === 'planets') {
@@ -19,7 +28,9 @@ const DetailsCategoryElement = ({ category, data }) => {
             films,
         ] = arrayData
 
-        console.log(arrayData)
+        /*  console.log(arrayData)
+        console.log(residents)
+        console.log(films) */
         return (
             <DetailsCategoryElementStyled>
                 <p>name: {name}</p>
@@ -32,12 +43,21 @@ const DetailsCategoryElement = ({ category, data }) => {
                 <p>terrain: {terrain}</p>
                 <p>surface water: {surface_water}</p>
                 {/*  TO DO: DOWNLOAD DATA FROM API ABOUT RESIDENTS AND FILMS FOR PLANETS DETAILS */}
-                {/* <p>residents: </p>
-                <p>films : {films}</p> */}
+                <GetDataAPIFomLinksAtDetails
+                    link={residents}
+                    category={'planets'}
+                    elements={'residents'}
+                ></GetDataAPIFomLinksAtDetails>
+                <GetDataAPIFomLinksAtDetails
+                    link={films}
+                    category={'planets'}
+                    elements={'films'}
+                ></GetDataAPIFomLinksAtDetails>
+                <p>residents: {residents}</p>
+                <p>films : {films}</p>
             </DetailsCategoryElementStyled>
         )
     } else if (category === 'people') {
-        console.log(data)
         const arrayData = Object.values(data)
         const [
             name,
@@ -50,12 +70,19 @@ const DetailsCategoryElement = ({ category, data }) => {
             gender,
             homeworld,
         ] = arrayData
-        console.log(arrayData)
+        const homeworldLink = [homeworld]
+
         return (
             <DetailsCategoryElementStyled>
                 <p>name: {name}</p>
                 <p>gender: {gender}</p>
-                <p>homeworld: {homeworld}</p>
+
+                <GetDataAPIFomLinksAtDetails
+                    link={homeworldLink}
+                    category={'people'}
+                    elements={'homeworld'}
+                ></GetDataAPIFomLinksAtDetails>
+
                 <p>mass: {mass}</p>
                 <p>height: {height}</p>
                 <p>birth year: {birth_year}</p>

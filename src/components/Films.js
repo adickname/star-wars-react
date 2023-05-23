@@ -1,7 +1,9 @@
-import GetDataAPI from './DataAPI'
+import GetDataAPI from './DataAPICategory'
 
 const Films = () => {
-    return <GetDataAPI category={'films'} />
+    return (
+        <GetDataAPI link={'https://swapi.dev/api/films/'} category={'films'} />
+    )
 }
 
 export default Films
