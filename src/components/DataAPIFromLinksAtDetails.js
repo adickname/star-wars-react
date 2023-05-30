@@ -5,55 +5,165 @@ const GetDataAPIFomLinksAtDetails = ({ link, category, elements }) => {
     const [homeworld, setHomeworld] = useState([])
     const [films, setFilms] = useState([])
     const [residents, setResidents] = useState([])
+    const [planets, setPlanets] = useState([])
+    const [species, setSpecies] = useState([])
+    const [starships, setStarships] = useState([])
+    const [characters, setCharacters] = useState([])
+    const [vehicles, setVehicles] = useState([])
+    const [pilots, setPilots] = useState([])
     const links = Object.values(link)
-    useEffect(() => {
-        links.forEach((element) =>
-            axios.get(`${element}`).then(({ data }) => {
-                const newElement = []
-                newElement.push(data)
-                if (elements === 'films') {
-                    setFilms([newElement])
-                    console.log(films)
-                }
-                if (elements === 'residents') {
-                    setResidents(data)
-                }
-                if (elements === 'homeworld') {
-                    setHomeworld(data)
-                }
 
-                setIsDownloading(false)
-            })
-        )
-        //fetch(`${link}`).then((data) => console.log(data))
+    useEffect(() => {
+        links.forEach((e) => {
+            axios
+                .get(e)
+                .then(({ data }) => {
+                    if (category === 'planets') {
+                        if (elements === 'residents') {
+                            setResidents((oldArray) => [...oldArray, data])
+                        } else if (elements === 'films') {
+                            setFilms((oldArray) => [...oldArray, data])
+                        }
+                    } else if (category === 'people') {
+                        setHomeworld(data)
+                    } else if (category === 'films') {
+                        if (elements === 'planets') {
+                            setPlanets((oldArray) => [...oldArray, data])
+                        } else if (elements === 'species') {
+                            setSpecies((oldArray) => [...oldArray, data])
+                        } else if (elements === 'starships') {
+                            setStarships((oldArray) => [...oldArray, data])
+                        } else if (elements === 'characters') {
+                            setCharacters((oldArray) => [...oldArray, data])
+                        } else if (elements === 'vehicles') {
+                            setVehicles((oldArray) => [...oldArray, data])
+                        }
+                    } else if (category === 'starships') {
+                        if (elements === 'pilots') {
+                            setPilots((oldArray) => [...oldArray, data])
+                        } else if (elements === 'films') {
+                            console.log(data)
+                            setFilms((oldArray) => [...oldArray, data])
+                            console.log(films)
+                        }
+                    }
+                })
+                .catch((err) => console.log(err))
+        })
+        setIsDownloading(false)
     }, [])
 
     return (
         <>
-            <>{isDownloading && <>Loading data</>}</>
-
-            {!isDownloading && category === 'people' && (
-                <p>
-                    homeworld : <>{homeworld.name}</>
-                </p>
-            )}
-
-            {!isDownloading && category === 'planets' && (
-                <>
+            <p>{isDownloading && <>Loading data</>}</p>
+            {!isDownloading &&
+                category === 'people' &&
+                elements === 'homeworld' && (
                     <p>
-                        residents : <>{residents.name}</>
+                        homeworld : <>{homeworld.name}</>
                     </p>
+                )}
+            {!isDownloading &&
+                category === 'planets' &&
+                ((elements === 'residents' && (
+                    <p>
+                        residents :
+                        <>
+                            {residents.map((name) => (
+                                <p>{name}</p>
+                            ))}
+                        </>
+                    </p>
+                )) ||
+                    (elements === 'films' && (
+                        <p>
+                            films :
+                            <p>
+                                {films.map(({ title }) => (
+                                    <p>{title}</p>
+                                ))}
+                            </p>
+                        </p>
+                    )))}
+
+            {(!isDownloading &&
+                category === 'films' &&
+                elements === 'species' && (
+                    <p>
+                        species :
+                        <p>
+                            {species.map(({ name }) => (
+                                <p>{name}</p>
+                            ))}
+                        </p>
+                    </p>
+                )) ||
+                (elements === 'planets' && (
+                    <p>
+                        planets :
+                        <>
+                            {planets.map((item) => (
+                                <p>{item.name}</p>
+                            ))}
+                        </>
+                    </p>
+                )) ||
+                (elements === 'starships' && (
+                    <p>
+                        starships :
+                        <>
+                            {starships.map((item) => (
+                                <p>{item.name}</p>
+                            ))}
+                        </>
+                    </p>
+                )) ||
+                (elements === 'characters' && (
+                    <p>
+                        characters :
+                        <>
+                            {characters.map((item) => (
+                                <p>{item.name}</p>
+                            ))}
+                        </>
+                    </p>
+                )) ||
+                (elements === 'vehicles' && (
+                    <p>
+                        vehicles :
+                        <>
+                            {vehicles.map((item) => (
+                                <p>{item.name}</p>
+                            ))}
+                        </>
+                    </p>
+                ))}
+            {!isDownloading &&
+                category === 'starships' &&
+                ((elements === 'films' && (
                     <p>
                         films :
-                        {films.map((films) => (
-                            <>
-                                <p>{films.title}</p>
-                                <p>episode: {films.episode_id}</p>
-                            </>
-                        ))}
+                        <p>
+                            {films.length > 0 ? (
+                                films.map(({ title }) => <p>{title}</p>)
+                            ) : (
+                                <p>This element has no films</p>
+                            )}
+                        </p>
                     </p>
-                </>
-            )}
+                )) ||
+                    (elements === 'pilots' && (
+                        <p>
+                            pilots :
+                            <p>
+                                {pilots.length > 0 ? (
+                                    pilots.map(({ name }) => <p>{name}</p>)
+                                ) : (
+                                    <p>This element has no pilots</p>
+                                )}
+                            </p>
+                        </p>
+                    )))}
         </>
     )
 }

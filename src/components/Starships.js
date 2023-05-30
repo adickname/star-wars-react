@@ -4,7 +4,7 @@ const Starships = () => {
     return (
         <GetDataAPI
             link={'https://swapi.dev/api/starships/'}
-            category={'planets'}
+            category={'starships'}
         />
     )
 }

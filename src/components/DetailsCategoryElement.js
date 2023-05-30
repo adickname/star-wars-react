@@ -1,17 +1,7 @@
-import GetDataAPI from './DataAPICategory'
 import GetDataAPIFomLinksAtDetails from './DataAPIFromLinksAtDetails'
 import DetailsCategoryElementStyled from './styles/DetailsCategoryElementStyled'
-import { useState } from 'react'
 
-/* const log = async (link) => {
-    const res = await fetch(`${link}`)
-    const data = await res.json()
-    console.log(data)
-    return data.name
-}
- */
 const DetailsCategoryElement = ({ category, data }) => {
-    const [isDownloading, setIsDownloading] = useState(true)
     if (category === 'planets') {
         const arrayData = Object.values(data)
         const [
@@ -28,9 +18,6 @@ const DetailsCategoryElement = ({ category, data }) => {
             films,
         ] = arrayData
 
-        /*  console.log(arrayData)
-        console.log(residents)
-        console.log(films) */
         return (
             <DetailsCategoryElementStyled>
                 <p>name: {name}</p>
@@ -42,19 +29,16 @@ const DetailsCategoryElement = ({ category, data }) => {
                 <p>climate: {climate}</p>
                 <p>terrain: {terrain}</p>
                 <p>surface water: {surface_water}</p>
-                {/*  TO DO: DOWNLOAD DATA FROM API ABOUT RESIDENTS AND FILMS FOR PLANETS DETAILS */}
                 <GetDataAPIFomLinksAtDetails
                     link={residents}
                     category={'planets'}
                     elements={'residents'}
-                ></GetDataAPIFomLinksAtDetails>
+                />
                 <GetDataAPIFomLinksAtDetails
                     link={films}
                     category={'planets'}
                     elements={'films'}
-                ></GetDataAPIFomLinksAtDetails>
-                <p>residents: {residents}</p>
-                <p>films : {films}</p>
+                />
             </DetailsCategoryElementStyled>
         )
     } else if (category === 'people') {
@@ -76,13 +60,11 @@ const DetailsCategoryElement = ({ category, data }) => {
             <DetailsCategoryElementStyled>
                 <p>name: {name}</p>
                 <p>gender: {gender}</p>
-
                 <GetDataAPIFomLinksAtDetails
                     link={homeworldLink}
                     category={'people'}
                     elements={'homeworld'}
-                ></GetDataAPIFomLinksAtDetails>
-
+                />
                 <p>mass: {mass}</p>
                 <p>height: {height}</p>
                 <p>birth year: {birth_year}</p>
@@ -111,6 +93,7 @@ const DetailsCategoryElement = ({ category, data }) => {
             pilots,
             films,
         ] = arrayData
+        console.log(arrayData)
         return (
             <DetailsCategoryElementStyled>
                 <p>name: {name}</p>
@@ -126,8 +109,16 @@ const DetailsCategoryElement = ({ category, data }) => {
                 <p>hyperdrive rating: {hyperdrive_rating}</p>
                 <p>MGLT: {MGLT}</p>
                 <p>starships class: {starships_class}</p>
-                <p>pilots: {pilots}</p>
-                <p>films: {films}</p>
+                <GetDataAPIFomLinksAtDetails
+                    link={pilots}
+                    category={'starships'}
+                    elements={'pilots'}
+                />
+                <GetDataAPIFomLinksAtDetails
+                    link={films}
+                    category={'starships'}
+                    elements={'films'}
+                />
             </DetailsCategoryElementStyled>
         )
     } else if (category === 'films') {
@@ -154,11 +145,31 @@ const DetailsCategoryElement = ({ category, data }) => {
                 <p>director: {director}</p>
                 <p>producer: {producer}</p>
                 <p>relase date: {relase_date}</p>
-                <p>species: {species}</p>
-                <p>starships: {starships}</p>
-                <p>characters: {characters}</p>
-                <p>planets: {planets}</p>
-                <p>vehicles: {vehicles}</p>
+                <GetDataAPIFomLinksAtDetails
+                    link={species}
+                    category={'films'}
+                    elements={'species'}
+                />
+                <GetDataAPIFomLinksAtDetails
+                    link={starships}
+                    category={'films'}
+                    elements={'starships'}
+                />
+                <GetDataAPIFomLinksAtDetails
+                    link={characters}
+                    category={'films'}
+                    elements={'characters'}
+                />
+                <GetDataAPIFomLinksAtDetails
+                    link={planets}
+                    category={'films'}
+                    elements={'planets'}
+                />
+                <GetDataAPIFomLinksAtDetails
+                    link={vehicles}
+                    category={'films'}
+                    elements={'vehicles'}
+                />
             </DetailsCategoryElementStyled>
         )
     } else {

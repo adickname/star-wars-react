@@ -10,23 +10,21 @@ import Starships from './components/Starships'
 import GlobalStyles from './components/styles/GlobalStyles'
 const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(
-    <React.StrictMode>
-        <BrowserRouter>
-            <GlobalStyles />
-            <Nav />
-            <Routes>
-                <Route path="/" element={<Home />} />
+    <BrowserRouter>
+        <GlobalStyles />
+        <Nav />
+        <Routes>
+            <Route path="/" element={<Home />} />
 
-                <Route path="/planets" element={<Planets />} />
+            <Route path="/planets" element={<Planets />} />
 
-                <Route path="/people" element={<People />} />
+            <Route path="/people" element={<People />} />
 
-                <Route path="/films" element={<Films />} />
+            <Route path="/films" element={<Films />} />
 
-                <Route path="/starships" element={<Starships />} />
-            </Routes>
-        </BrowserRouter>
-    </React.StrictMode>
+            <Route path="/starships" element={<Starships />} />
+        </Routes>
+    </BrowserRouter>
 )
 
 // If you want to start measuring performance in your app, pass a function
