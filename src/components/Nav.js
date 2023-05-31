@@ -7,16 +7,37 @@ import Hamburger from 'hamburger-react'
 
 const Nav = () => {
     const [isOpen, setIsOpen] = useState(false)
+    const [width, setWidth] = useState()
     function handleClick() {
         setIsOpen(!isOpen)
     }
+    useEffect(() => {
+        const handleResize = () => {
+            setWidth(window.innerWidth)
+        }
+        window.addEventListener('load', handleResize)
+        window.addEventListener('resize', handleResize)
+    })
+
     return (
-        <NavStyled onClick={() => handleClick()}>
-            <>
-                <Hamburger></Hamburger>
-                <h1>STAR WARS WIKI</h1>
-            </>
-            <>{isOpen && <Ul></Ul>}</>
+        <NavStyled>
+            {width > 768 ? (
+                <>
+                    <h1>Star Wars Wiki</h1>
+                    <Ul></Ul>
+                </>
+            ) : (
+                <>
+                    {' '}
+                    <NavStyled onClick={() => handleClick()}>
+                        <>
+                            <Hamburger></Hamburger>
+                            <h1>STAR WARS WIKI</h1>
+                        </>
+                        <>{isOpen && <Ul></Ul>}</>
+                    </NavStyled>
+                </>
+            )}
         </NavStyled>
     )
 }

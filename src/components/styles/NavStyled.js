@@ -6,5 +6,8 @@ const NavStyled = styled.nav`
     align-items: center;
     justify-content: space-between;
     padding: 10px;
+    @media (min-width: 768px) {
+        flex-direction: row;
+    }
 `
 export default NavStyled
