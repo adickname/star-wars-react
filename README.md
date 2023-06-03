@@ -1,7 +1,7 @@
 # STAR WARS BLOG
 ## INTRODUCTION
 In this project you can know more about STAR WARS universe e.g planets, peaople, starships etc.
-
+Project can see at <a href="starwarswikiproject.netlify.app">starwarswikiproject.netlify.app</a><br />
 ## TECHNOLOGIES
 I use: <br />
 node  v20.1.0
