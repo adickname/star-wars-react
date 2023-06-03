@@ -1,5 +1,5 @@
 import { styled } from 'styled-components'
-import { darkerPlutoColor, plutoColor } from './Variables'
+import { darkerPlutoColor } from './Variables'
 const DetailsCategoryElementStyled = styled.h2`
     color: aliceblue;
     width: 100%;
