@@ -42,9 +42,7 @@ const GetDataAPIFomLinksAtDetails = ({ link, category, elements }) => {
                         if (elements === 'pilots') {
                             setPilots((oldArray) => [...oldArray, data])
                         } else if (elements === 'films') {
-                            console.log(data)
                             setFilms((oldArray) => [...oldArray, data])
-                            console.log(films)
                         }
                     }
                 })
@@ -69,7 +67,7 @@ const GetDataAPIFomLinksAtDetails = ({ link, category, elements }) => {
                     <p>
                         residents :
                         <>
-                            {residents.map((name) => (
+                            {residents.map(({ name }) => (
                                 <p>{name}</p>
                             ))}
                         </>

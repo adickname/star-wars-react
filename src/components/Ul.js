@@ -1,24 +1,24 @@
 import UlStyled from './styles/UlStyled'
 import LiStyleds from './styles/LiStyled'
-import { Link } from 'react-router-dom'
+import NavbarLink from './styles/NavbarLink'
 const Ul = () => {
     return (
         <UlStyled>
-            <Link to="/">
+            <NavbarLink to="/">
                 <LiStyleds>Home</LiStyleds>
-            </Link>
-            <Link to="/planets">
+            </NavbarLink>
+            <NavbarLink to="/planets">
                 <LiStyleds>Planets</LiStyleds>
-            </Link>
-            <Link to="/people">
+            </NavbarLink>
+            <NavbarLink to="/people">
                 <LiStyleds>People</LiStyleds>
-            </Link>
-            <Link to="/films">
+            </NavbarLink>
+            <NavbarLink to="/films">
                 <LiStyleds>Films</LiStyleds>
-            </Link>
-            <Link to="starships">
+            </NavbarLink>
+            <NavbarLink to="starships">
                 <LiStyleds>Starships</LiStyleds>
-            </Link>
+            </NavbarLink>
         </UlStyled>
     )
 }

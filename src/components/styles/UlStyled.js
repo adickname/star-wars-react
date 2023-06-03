@@ -4,7 +4,7 @@ const UlStyled = styled.ul`
     display: flex;
     flex-direction: column;
     list-style-type: none;
-    padding: 10px;
+    padding: 0px;
     @media (min-width: 768px) {
         flex-direction: row;
     }

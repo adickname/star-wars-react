@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import HeaderDetailsCategoryElementStyled from './styles/HeaderDetailsCategoryElement'
-import DetailsCategoryElementStyled from './DetailsCategoryElement'
-import HeaderDetailsElementStyled from './styles/HeaderDetail'
-import GetDataAPIFomLinksAtDetails from './DataAPIFromLinksAtDetails'
+import HeaderDetailsElementStyled from './styles/HeaderDetailsCategoryElement'
 import DetailsCategoryElement from './DetailsCategoryElement'
+import DivStyled from './styles/DivStyled'
 
 const GetDataAPI = ({ link, category, onSubPage }) => {
     const [isDownloading, setIsDownloading] = useState(true)
@@ -15,8 +14,6 @@ const GetDataAPI = ({ link, category, onSubPage }) => {
         if (e.target) {
             setSelected(id) //selected and id are same it means close the toggle
         }
-        console.log(e.target)
-        console.log(url)
     }
     useEffect(() => {
         axios
@@ -49,9 +46,9 @@ const GetDataAPI = ({ link, category, onSubPage }) => {
                                                     toggle(e, data.url)
                                                 }}
                                             >
-                                                <div key={index}>
-                                                    {data.name}
-                                                </div>
+                                                <DivStyled key={index}>
+                                                    <h2>{data.name}</h2>
+                                                </DivStyled>
                                                 {selected === data.url ? (
                                                     <DetailsCategoryElement
                                                         category={'planets'}
@@ -68,9 +65,9 @@ const GetDataAPI = ({ link, category, onSubPage }) => {
                                                     toggle(e, data.url)
                                                 }}
                                             >
-                                                <div key={index}>
-                                                    {data.name}
-                                                </div>
+                                                <DivStyled key={index}>
+                                                    <h2>{data.name}</h2>
+                                                </DivStyled>
                                                 {selected === data.url ? (
                                                     <DetailsCategoryElement
                                                         category={'people'}
@@ -87,9 +84,9 @@ const GetDataAPI = ({ link, category, onSubPage }) => {
                                                     toggle(e, data.url)
                                                 }}
                                             >
-                                                <div key={index}>
-                                                    {data.name}
-                                                </div>
+                                                <DivStyled key={index}>
+                                                    <h2>{data.name}</h2>
+                                                </DivStyled>
                                                 {selected === data.url ? (
                                                     <DetailsCategoryElement
                                                         category={'starships'}
@@ -106,9 +103,9 @@ const GetDataAPI = ({ link, category, onSubPage }) => {
                                                     toggle(e, data.url)
                                                 }}
                                             >
-                                                <div key={index}>
-                                                    {data.title}
-                                                </div>
+                                                <DivStyled key={index}>
+                                                    <h2>{data.title}</h2>
+                                                </DivStyled>
                                                 {selected === data.url ? (
                                                     <DetailsCategoryElement
                                                         category={'films'}

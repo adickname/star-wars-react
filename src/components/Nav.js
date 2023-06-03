@@ -1,10 +1,8 @@
 import NavStyled from './styles/NavStyled'
 import Ul from './Ul'
-import LiStyleds from './styles/LiStyled'
-import { Link } from 'react-router-dom'
 import React, { useState, useEffect } from 'react'
 import Hamburger from 'hamburger-react'
-
+import H1styled from './styles/H1'
 const Nav = () => {
     const [isOpen, setIsOpen] = useState(false)
     const [width, setWidth] = useState()
@@ -23,7 +21,7 @@ const Nav = () => {
         <NavStyled>
             {width > 768 ? (
                 <>
-                    <h1>Star Wars Wiki</h1>
+                    <H1styled>Star Wars Wiki</H1styled>
                     <Ul></Ul>
                 </>
             ) : (

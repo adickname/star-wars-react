@@ -74,7 +74,6 @@ const DetailsCategoryElement = ({ category, data }) => {
             </DetailsCategoryElementStyled>
         )
     } else if (category === 'starships') {
-        console.log(data)
         const arrayData = Object.values(data)
         const [
             name,
@@ -93,7 +92,7 @@ const DetailsCategoryElement = ({ category, data }) => {
             pilots,
             films,
         ] = arrayData
-        console.log(arrayData)
+
         return (
             <DetailsCategoryElementStyled>
                 <p>name: {name}</p>
