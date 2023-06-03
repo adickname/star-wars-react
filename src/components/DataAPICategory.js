@@ -8,7 +8,6 @@ import DivStyled from './styles/DivStyled'
 const GetDataAPI = ({ link, category, onSubPage }) => {
     const [isDownloading, setIsDownloading] = useState(true)
     const [categoryData, setCategoryData] = useState([])
-    const [url, setUrl] = useState()
     const [selected, setSelected] = useState()
     const toggle = (e, id) => {
         if (e.target) {
