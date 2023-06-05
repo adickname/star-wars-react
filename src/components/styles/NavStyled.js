@@ -10,6 +10,7 @@ const NavStyled = styled.nav`
     width: 100%;
     @media (min-width: 768px) {
         flex-direction: row;
+        padding: 10px 0;
     }
 `
 export default NavStyled
