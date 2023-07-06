@@ -5,7 +5,7 @@ import HeaderDetailsElementStyled from './styles/HeaderDetailsCategoryElement'
 import DetailsCategoryElement from './DetailsCategoryElement'
 import DivStyled from './styles/DivStyled'
 
-const GetDataAPI = ({ link, category, onSubPage }) => {
+const DataAPICategory = ({ link, category }) => {
     const [isDownloading, setIsDownloading] = useState(true)
     const [categoryData, setCategoryData] = useState([])
     const [selected, setSelected] = useState()
@@ -15,6 +15,8 @@ const GetDataAPI = ({ link, category, onSubPage }) => {
         }
     }
     useEffect(() => {
+        console.log(link)
+        console.log(category)
         axios
             .get(`${link}`, {
                 'Content-Type': 'application/json',
@@ -26,102 +28,99 @@ const GetDataAPI = ({ link, category, onSubPage }) => {
                 setIsDownloading(false)
             })
             .catch((err) => console.log(err))
-    }, [])
-    if (onSubPage) {
-        //return categoryData
-    } else {
-        return (
-            <section>
-                {isDownloading && <p>Loading data</p>}
-                <article>
-                    {categoryData.map((data, index) => (
+    }, [link])
+
+    return (
+        <section>
+            {isDownloading && <p>Loading data</p>}
+            <article>
+                {categoryData.map((data, index) => (
+                    <>
                         <>
-                            <>
-                                <HeaderDetailsCategoryElementStyled>
-                                    <>
-                                        {category === 'planets' && (
-                                            <HeaderDetailsElementStyled
-                                                onClick={(e) => {
-                                                    toggle(e, data.url)
-                                                }}
-                                            >
-                                                <DivStyled key={index}>
-                                                    <h2>{data.name}</h2>
-                                                </DivStyled>
-                                                {selected === data.url ? (
-                                                    <DetailsCategoryElement
-                                                        category={'planets'}
-                                                        data={data}
-                                                    ></DetailsCategoryElement>
-                                                ) : null}
-                                            </HeaderDetailsElementStyled>
-                                        )}
-                                    </>
-                                    <>
-                                        {category === 'people' && (
-                                            <HeaderDetailsElementStyled
-                                                onClick={(e) => {
-                                                    toggle(e, data.url)
-                                                }}
-                                            >
-                                                <DivStyled key={index}>
-                                                    <h2>{data.name}</h2>
-                                                </DivStyled>
-                                                {selected === data.url ? (
-                                                    <DetailsCategoryElement
-                                                        category={'people'}
-                                                        data={data}
-                                                    ></DetailsCategoryElement>
-                                                ) : null}
-                                            </HeaderDetailsElementStyled>
-                                        )}
-                                    </>
-                                    <>
-                                        {category === 'starships' && (
-                                            <HeaderDetailsElementStyled
-                                                onClick={(e) => {
-                                                    toggle(e, data.url)
-                                                }}
-                                            >
-                                                <DivStyled key={index}>
-                                                    <h2>{data.name}</h2>
-                                                </DivStyled>
-                                                {selected === data.url ? (
-                                                    <DetailsCategoryElement
-                                                        category={'starships'}
-                                                        data={data}
-                                                    ></DetailsCategoryElement>
-                                                ) : null}
-                                            </HeaderDetailsElementStyled>
-                                        )}
-                                    </>
-                                    <>
-                                        {category === 'films' && (
-                                            <HeaderDetailsElementStyled
-                                                onClick={(e) => {
-                                                    toggle(e, data.url)
-                                                }}
-                                            >
-                                                <DivStyled key={index}>
-                                                    <h2>{data.title}</h2>
-                                                </DivStyled>
-                                                {selected === data.url ? (
-                                                    <DetailsCategoryElement
-                                                        category={'films'}
-                                                        data={data}
-                                                    ></DetailsCategoryElement>
-                                                ) : null}
-                                            </HeaderDetailsElementStyled>
-                                        )}
-                                    </>
-                                </HeaderDetailsCategoryElementStyled>
-                            </>
+                            <HeaderDetailsCategoryElementStyled>
+                                <>
+                                    {category === 'planets' && (
+                                        <HeaderDetailsElementStyled
+                                            onClick={(e) => {
+                                                toggle(e, data.url)
+                                            }}
+                                        >
+                                            <DivStyled key={index}>
+                                                <h2>{data.name}</h2>
+                                            </DivStyled>
+                                            {selected === data.url ? (
+                                                <DetailsCategoryElement
+                                                    category={'planets'}
+                                                    data={data}
+                                                ></DetailsCategoryElement>
+                                            ) : null}
+                                        </HeaderDetailsElementStyled>
+                                    )}
+                                </>
+                                <>
+                                    {category === 'people' && (
+                                        <HeaderDetailsElementStyled
+                                            onClick={(e) => {
+                                                toggle(e, data.url)
+                                            }}
+                                        >
+                                            <DivStyled key={index}>
+                                                <h2>{data.name}</h2>
+                                            </DivStyled>
+                                            {selected === data.url ? (
+                                                <DetailsCategoryElement
+                                                    category={'people'}
+                                                    data={data}
+                                                ></DetailsCategoryElement>
+                                            ) : null}
+                                        </HeaderDetailsElementStyled>
+                                    )}
+                                </>
+                                <>
+                                    {category === 'starships' && (
+                                        <HeaderDetailsElementStyled
+                                            onClick={(e) => {
+                                                toggle(e, data.url)
+                                            }}
+                                        >
+                                            <DivStyled key={index}>
+                                                <h2>{data.name}</h2>
+                                            </DivStyled>
+                                            {selected === data.url ? (
+                                                <DetailsCategoryElement
+                                                    category={'starships'}
+                                                    data={data}
+                                                ></DetailsCategoryElement>
+                                            ) : null}
+                                        </HeaderDetailsElementStyled>
+                                    )}
+                                </>
+                                <>
+                                    {category === 'films' && (
+                                        <HeaderDetailsElementStyled
+                                            onClick={(e) => {
+                                                toggle(e, data.url)
+                                            }}
+                                        >
+                                            <DivStyled key={index}>
+                                                <h2>{data.title}</h2>
+                                            </DivStyled>
+                                            {selected === data.url ? (
+                                                <DetailsCategoryElement
+                                                    category={'films'}
+                                                    data={data}
+                                                ></DetailsCategoryElement>
+                                            ) : null}
+                                        </HeaderDetailsElementStyled>
+                                    )}
+                                </>
+                            </HeaderDetailsCategoryElementStyled>
                         </>
-                    ))}
-                </article>
-            </section>
-        )
-    }
+                    </>
+                ))}
+            </article>
+        </section>
+    )
 }
 
-export default GetDataAPI
+export default DataAPICategory

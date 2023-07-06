@@ -1,11 +1,17 @@
-import GetDataAPI from './DataAPICategory'
+import React, { useContext } from 'react'
+import DataAPICategory from './DataAPICategory'
 
+import { numberContext } from '../App'
 const Planets = () => {
+    const [numberState, setNumberState] = useContext(numberContext)
+
     return (
-        <GetDataAPI
-            link={'https://swapi.dev/api/planets/'}
-            category={'planets'}
-        />
+        <>
+            <DataAPICategory
+                link={`https://swapi.dev/api/planets/?page=${numberState}`}
+                category={'planets'}
+            />
+        </>
     )
 }
 
