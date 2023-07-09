@@ -9,14 +9,19 @@ const DataAPICategory = ({ link, category }) => {
     const [isDownloading, setIsDownloading] = useState(true)
     const [categoryData, setCategoryData] = useState([])
     const [selected, setSelected] = useState()
+    const [roll, setRoll] = useState(false)
     const toggle = (e, id) => {
         if (e.target) {
-            setSelected(id) //selected and id are same it means close the toggle
+            if (selected === id) {
+                setRoll(!roll)
+            } else {
+                setRoll(true)
+            }
+            setSelected(id)
+            //selected and id are same it means close the toggle
         }
     }
     useEffect(() => {
-        console.log(link)
-        console.log(category)
         axios
             .get(`${link}`, {
                 'Content-Type': 'application/json',
@@ -48,7 +53,7 @@ const DataAPICategory = ({ link, category }) => {
                                             <DivStyled key={index}>
                                                 <h2>{data.name}</h2>
                                             </DivStyled>
-                                            {selected === data.url ? (
+                                            {selected === data.url && roll ? (
                                                 <DetailsCategoryElement
                                                     category={'planets'}
                                                     data={data}
@@ -67,7 +72,7 @@ const DataAPICategory = ({ link, category }) => {
                                             <DivStyled key={index}>
                                                 <h2>{data.name}</h2>
                                             </DivStyled>
-                                            {selected === data.url ? (
+                                            {selected === data.url && roll ? (
                                                 <DetailsCategoryElement
                                                     category={'people'}
                                                     data={data}
@@ -86,7 +91,7 @@ const DataAPICategory = ({ link, category }) => {
                                             <DivStyled key={index}>
                                                 <h2>{data.name}</h2>
                                             </DivStyled>
-                                            {selected === data.url ? (
+                                            {selected === data.url && roll ? (
                                                 <DetailsCategoryElement
                                                     category={'starships'}
                                                     data={data}
@@ -105,7 +110,7 @@ const DataAPICategory = ({ link, category }) => {
                                             <DivStyled key={index}>
                                                 <h2>{data.title}</h2>
                                             </DivStyled>
-                                            {selected === data.url ? (
+                                            {selected === data.url && roll ? (
                                                 <DetailsCategoryElement
                                                     category={'films'}
                                                     data={data}

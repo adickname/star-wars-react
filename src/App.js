@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import ReactDOM from 'react-dom/client'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Nav from './components/Nav'
 import Home from './components/Home'
@@ -24,7 +23,7 @@ const App = () => {
                         path="/planets"
                         element={
                             <>
-                                <Planets /> <ButtonsToNext />
+                                <Planets /> <ButtonsToNext buttons={6} />
                             </>
                         }
                     />
@@ -33,7 +32,7 @@ const App = () => {
                         path="/people"
                         element={
                             <>
-                                <People /> <ButtonsToNext />
+                                <People /> <ButtonsToNext buttons={6} />
                             </>
                         }
                     />
