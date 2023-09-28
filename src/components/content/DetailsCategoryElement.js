@@ -1,5 +1,5 @@
-import GetDataAPIFomLinksAtDetails from './DataAPIFromLinksAtDetails'
-import DetailsCategoryElementStyled from './styles/DetailsCategoryElementStyled'
+import DataAPIFromLinksDetails from '../API/DataAPIFromLinksAtDetails'
+import DetailsCategoryElementStyled from '../styles/DetailsCategoryElementStyled'
 
 const DetailsCategoryElement = ({ category, data }) => {
     if (category === 'planets') {
@@ -29,12 +29,12 @@ const DetailsCategoryElement = ({ category, data }) => {
                 <p>climate: {climate}</p>
                 <p>terrain: {terrain}</p>
                 <p>surface water: {surface_water}</p>
-                <GetDataAPIFomLinksAtDetails
+                <DataAPIFromLinksDetails
                     link={residents}
                     category={'planets'}
                     elements={'residents'}
                 />
-                <GetDataAPIFomLinksAtDetails
+                <DataAPIFromLinksDetails
                     link={films}
                     category={'planets'}
                     elements={'films'}
@@ -60,7 +60,7 @@ const DetailsCategoryElement = ({ category, data }) => {
             <DetailsCategoryElementStyled>
                 <p>name: {name}</p>
                 <p>gender: {gender}</p>
-                <GetDataAPIFomLinksAtDetails
+                <DataAPIFromLinksDetails
                     link={homeworldLink}
                     category={'people'}
                     elements={'homeworld'}
@@ -108,12 +108,12 @@ const DetailsCategoryElement = ({ category, data }) => {
                 <p>hyperdrive rating: {hyperdrive_rating}</p>
                 <p>MGLT: {MGLT}</p>
                 <p>starships class: {starships_class}</p>
-                <GetDataAPIFomLinksAtDetails
+                <DataAPIFromLinksDetails
                     link={pilots}
                     category={'starships'}
                     elements={'pilots'}
                 />
-                <GetDataAPIFomLinksAtDetails
+                <DataAPIFromLinksDetails
                     link={films}
                     category={'starships'}
                     elements={'films'}
@@ -144,27 +144,27 @@ const DetailsCategoryElement = ({ category, data }) => {
                 <p>director: {director}</p>
                 <p>producer: {producer}</p>
                 <p>relase date: {relase_date}</p>
-                <GetDataAPIFomLinksAtDetails
+                <DataAPIFromLinksDetails
                     link={species}
                     category={'films'}
                     elements={'species'}
                 />
-                <GetDataAPIFomLinksAtDetails
+                <DataAPIFromLinksDetails
                     link={starships}
                     category={'films'}
                     elements={'starships'}
                 />
-                <GetDataAPIFomLinksAtDetails
+                <GetDataAPIFromLinksDetails
                     link={characters}
                     category={'films'}
                     elements={'characters'}
                 />
-                <GetDataAPIFomLinksAtDetails
+                <DataAPIFromLinksDetails
                     link={planets}
                     category={'films'}
                     elements={'planets'}
                 />
-                <GetDataAPIFomLinksAtDetails
+                <DataAPIFromLinksDetails
                     link={vehicles}
                     category={'films'}
                     elements={'vehicles'}

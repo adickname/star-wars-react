@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
-import HeaderDetailsCategoryElementStyled from './styles/HeaderDetailsCategoryElement'
-import HeaderDetailsElementStyled from './styles/HeaderDetailsCategoryElement'
-import DetailsCategoryElement from './DetailsCategoryElement'
-import DivStyled from './styles/DivStyled'
+import HeaderDetailsCategoryElementStyled from '../styles/HeaderDetailsCategoryElement'
+import HeaderDetailsElementStyled from '../styles/HeaderDetailsCategoryElement'
+import DetailsCategoryElement from '../content/DetailsCategoryElement'
+import DivStyled from '../styles/DivStyled'
 
 const DataAPICategory = ({ link, category }) => {
     const [isDownloading, setIsDownloading] = useState(true)

@@ -1,4 +1,4 @@
-import GetDataAPI from './DataAPICategory'
+import GetDataAPI from '../API/DataAPICategory'
 
 const Films = () => {
     return (

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
-const GetDataAPIFomLinksAtDetails = ({ link, category, elements }) => {
+const DataAPIFromLinksDetails = ({ link, category, elements }) => {
     const [isDownloading, setIsDownloading] = useState(true)
     const [homeworld, setHomeworld] = useState([])
     const [films, setFilms] = useState([])
@@ -166,4 +166,4 @@ const GetDataAPIFomLinksAtDetails = ({ link, category, elements }) => {
     )
 }
 
-export default GetDataAPIFomLinksAtDetails
+export default DataAPIFromLinksDetails
