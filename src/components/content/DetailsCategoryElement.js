@@ -154,7 +154,7 @@ const DetailsCategoryElement = ({ category, data }) => {
                     category={'films'}
                     elements={'starships'}
                 />
-                <GetDataAPIFromLinksDetails
+                <DataAPIFromLinksDetails
                     link={characters}
                     category={'films'}
                     elements={'characters'}
