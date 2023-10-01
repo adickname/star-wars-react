@@ -5,7 +5,7 @@ import HeaderDetailsElementStyled from '../styles/HeaderDetailsCategoryElement'
 import DetailsCategoryElement from '../content/DetailsCategoryElement'
 import DivStyled from '../styles/DivStyled'
 
-const DataAPICategory = ({ link, category }) => {
+const GetDataAPI = ({ link, category }) => {
     const [isDownloading, setIsDownloading] = useState(true)
     const [categoryData, setCategoryData] = useState([])
     const [selected, setSelected] = useState()
@@ -22,6 +22,8 @@ const DataAPICategory = ({ link, category }) => {
         }
     }
     useEffect(() => {
+        setIsDownloading(true)
+        console.log(isDownloading)
         axios
             .get(`${link}`, {
                 'Content-Type': 'application/json',
@@ -38,94 +40,100 @@ const DataAPICategory = ({ link, category }) => {
     return (
         <section>
             {isDownloading && <p>Loading data</p>}
-            <article>
-                {categoryData.map((data, index) => (
-                    <>
+            {!isDownloading && (
+                <article>
+                    {categoryData.map((data, index) => (
                         <>
-                            <HeaderDetailsCategoryElementStyled>
-                                <>
-                                    {category === 'planets' && (
-                                        <HeaderDetailsElementStyled
-                                            onClick={(e) => {
-                                                toggle(e, data.url)
-                                            }}
-                                        >
-                                            <DivStyled key={index}>
-                                                <h2>{data.name}</h2>
-                                            </DivStyled>
-                                            {selected === data.url && roll ? (
-                                                <DetailsCategoryElement
-                                                    category={'planets'}
-                                                    data={data}
-                                                ></DetailsCategoryElement>
-                                            ) : null}
-                                        </HeaderDetailsElementStyled>
-                                    )}
-                                </>
-                                <>
-                                    {category === 'people' && (
-                                        <HeaderDetailsElementStyled
-                                            onClick={(e) => {
-                                                toggle(e, data.url)
-                                            }}
-                                        >
-                                            <DivStyled key={index}>
-                                                <h2>{data.name}</h2>
-                                            </DivStyled>
-                                            {selected === data.url && roll ? (
-                                                <DetailsCategoryElement
-                                                    category={'people'}
-                                                    data={data}
-                                                ></DetailsCategoryElement>
-                                            ) : null}
-                                        </HeaderDetailsElementStyled>
-                                    )}
-                                </>
-                                <>
-                                    {category === 'starships' && (
-                                        <HeaderDetailsElementStyled
-                                            onClick={(e) => {
-                                                toggle(e, data.url)
-                                            }}
-                                        >
-                                            <DivStyled key={index}>
-                                                <h2>{data.name}</h2>
-                                            </DivStyled>
-                                            {selected === data.url && roll ? (
-                                                <DetailsCategoryElement
-                                                    category={'starships'}
-                                                    data={data}
-                                                ></DetailsCategoryElement>
-                                            ) : null}
-                                        </HeaderDetailsElementStyled>
-                                    )}
-                                </>
-                                <>
-                                    {category === 'films' && (
-                                        <HeaderDetailsElementStyled
-                                            onClick={(e) => {
-                                                toggle(e, data.url)
-                                            }}
-                                        >
-                                            <DivStyled key={index}>
-                                                <h2>{data.title}</h2>
-                                            </DivStyled>
-                                            {selected === data.url && roll ? (
-                                                <DetailsCategoryElement
-                                                    category={'films'}
-                                                    data={data}
-                                                ></DetailsCategoryElement>
-                                            ) : null}
-                                        </HeaderDetailsElementStyled>
-                                    )}
-                                </>
-                            </HeaderDetailsCategoryElementStyled>
+                            <>
+                                <HeaderDetailsCategoryElementStyled>
+                                    <>
+                                        {category === 'planets' && (
+                                            <HeaderDetailsElementStyled
+                                                onClick={(e) => {
+                                                    toggle(e, data.url)
+                                                }}
+                                            >
+                                                <DivStyled key={index}>
+                                                    <h2>{data.name}</h2>
+                                                </DivStyled>
+                                                {selected === data.url &&
+                                                roll ? (
+                                                    <DetailsCategoryElement
+                                                        category={'planets'}
+                                                        data={data}
+                                                    ></DetailsCategoryElement>
+                                                ) : null}
+                                            </HeaderDetailsElementStyled>
+                                        )}
+                                    </>
+                                    <>
+                                        {category === 'people' && (
+                                            <HeaderDetailsElementStyled
+                                                onClick={(e) => {
+                                                    toggle(e, data.url)
+                                                }}
+                                            >
+                                                <DivStyled key={index}>
+                                                    <h2>{data.name}</h2>
+                                                </DivStyled>
+                                                {selected === data.url &&
+                                                roll ? (
+                                                    <DetailsCategoryElement
+                                                        category={'people'}
+                                                        data={data}
+                                                    ></DetailsCategoryElement>
+                                                ) : null}
+                                            </HeaderDetailsElementStyled>
+                                        )}
+                                    </>
+                                    <>
+                                        {category === 'starships' && (
+                                            <HeaderDetailsElementStyled
+                                                onClick={(e) => {
+                                                    toggle(e, data.url)
+                                                }}
+                                            >
+                                                <DivStyled key={index}>
+                                                    <h2>{data.name}</h2>
+                                                </DivStyled>
+                                                {selected === data.url &&
+                                                roll ? (
+                                                    <DetailsCategoryElement
+                                                        category={'starships'}
+                                                        data={data}
+                                                    ></DetailsCategoryElement>
+                                                ) : null}
+                                            </HeaderDetailsElementStyled>
+                                        )}
+                                    </>
+                                    <>
+                                        {category === 'films' && (
+                                            <HeaderDetailsElementStyled
+                                                onClick={(e) => {
+                                                    toggle(e, data.url)
+                                                }}
+                                            >
+                                                <DivStyled key={index}>
+                                                    <h2>{data.title}</h2>
+                                                </DivStyled>
+                                                {selected === data.url &&
+                                                roll ? (
+                                                    <DetailsCategoryElement
+                                                        category={'films'}
+                                                        data={data}
+                                                    ></DetailsCategoryElement>
+                                                ) : null}
+                                            </HeaderDetailsElementStyled>
+                                        )}
+                                    </>
+                                </HeaderDetailsCategoryElementStyled>
+                            </>
                         </>
-                    </>
-                ))}
-            </article>
+                    ))}
+                </article>
+            )}
         </section>
     )
 }
 
-export default DataAPICategory
+export default GetDataAPI
