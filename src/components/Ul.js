@@ -16,7 +16,7 @@ const Ul = () => {
             <NavbarLink to="/films">
                 <LiStyleds>Films</LiStyleds>
             </NavbarLink>
-            <NavbarLink to="starships">
+            <NavbarLink to="/starships">
                 <LiStyleds>Starships</LiStyleds>
             </NavbarLink>
         </UlStyled>

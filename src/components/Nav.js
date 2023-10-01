@@ -5,9 +5,11 @@ import Hamburger from 'hamburger-react'
 import H1styled from './styles/H1'
 const Nav = () => {
     const [isOpen, setIsOpen] = useState(false)
+    const [toggled, setToggled] = useState()
     const [width, setWidth] = useState()
     function handleClick() {
         setIsOpen(!isOpen)
+        setToggled(!toggled)
     }
     useEffect(() => {
         const handleResize = () => {
@@ -29,10 +31,10 @@ const Nav = () => {
                     {' '}
                     <NavStyled onClick={() => handleClick()}>
                         <>
-                            <Hamburger></Hamburger>
+                            <Hamburger toggled={toggled}></Hamburger>
                             <h1>STAR WARS WIKI</h1>
                         </>
-                        <>{isOpen && <Ul></Ul>}</>
+                        <>{isOpen && <Ul setToggled={setToggled}></Ul>}</>
                     </NavStyled>
                 </>
             )}
