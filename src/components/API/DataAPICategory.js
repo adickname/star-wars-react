@@ -23,7 +23,6 @@ const GetDataAPI = ({ link, category }) => {
     }
     useEffect(() => {
         setIsDownloading(true)
-        console.log(isDownloading)
         axios
             .get(`${link}`, {
                 'Content-Type': 'application/json',

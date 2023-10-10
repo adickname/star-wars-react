@@ -49,7 +49,7 @@ const DataAPIFromLinksDetails = ({ link, category, elements }) => {
                 .catch((err) => console.log(err))
         })
         setIsDownloading(false)
-    }, [category, elements, links])
+    }, [category, elements, isDownloading])
 
     return (
         <>
