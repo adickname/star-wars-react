@@ -49,7 +49,7 @@ const DataAPIFromLinksDetails = ({ link, category, elements }) => {
                 .catch((err) => console.log(err))
         })
         setIsDownloading(false)
-    }, [category, elements, isDownloading, links])
+    }, [])
 
     return (
         <>
@@ -65,7 +65,7 @@ const DataAPIFromLinksDetails = ({ link, category, elements }) => {
                 category === 'planets' &&
                 ((elements === 'residents' && (
                     <p>
-                        residents :
+                        residents :{residents.length === 0}
                         <>
                             {residents.map(({ name }) => (
                                 <p>{name}</p>
